@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MoshCoreUdemy.Dal;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplicationBasic
 {
@@ -30,6 +32,7 @@ namespace WebApplicationBasic
         {
             // Add framework services.
             services.AddMvc();
+            services.AddDbContext<VegaDbContext>(o => o.UseSqlServer("Default"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
